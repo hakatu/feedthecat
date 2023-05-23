@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tom Ky Mon pet feeder</title>
+    <style>
+      .led-off {
+        background-color: red;
+      }
+      .led-on {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Hung project to feed Tom, Ky and Mon</h1>
+    <div style="display: flex; gap: 50px;">
+        <button id="toggleButton" class="led-off">Toggle LED</button>
+        <img src="/video_feed" alt="Video Feed">
+    </div>
+    <audio id="sound" src="static/sound.mp3"></audio>
+    <script>
+      document.getElementById('toggleButton').addEventListener('click', function() {
+        var button = this;
+        fetch('/toggle_led')
+        .then(response => response.text())
+        .then(status => {
+          button.textContent = 'LED ' + status;
+          button.className = 'led-' + status.toLowerCase();
+          document.getElementById('sound').play();
+        });
+      });
+    </script>
+  </body>
+</html>

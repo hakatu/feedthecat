@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Raspberry Pi GPIO Control</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        $(function() {
+            $('#toggle-led').click(function() {
+                $.get('/toggle_led');
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <h1>Raspberry Pi GPIO Control</h1>
+        <button id="toggle-led">Toggle LED</button>
+        <img src="/video_feed" />
+    </body>
+</html>
+
